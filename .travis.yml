@@ -1,0 +1,17 @@
+language: node_js
+node_js:
+  - node
+services:
+  - postgresql
+before_script:
+  - psql -c 'CREATE DATABASE auth_server_test;' -U postgres
+  - knex migrate:latest --env=test
+  - knex seed:run --env=test
+notifications:
+  email: false
+deploy:
+  provider: heroku
+  api_key:
+    secure: VNbkMWfhvzQXkKNe0NWOxUTIdEWySpfuhFrrWh7ERKkuT4wgZUY3zx6mST945VzAN2gi1FtSzkGjzqCKGJ3s2t3muBmgqnGL4LXfoY/ZH2DdgVdOMfUJjxNYPF2q7dgSoZFLxXsRwLk88sSH9PkwupParHdXfaqaAMMuekTgJVsRwQDXUv5wT8+9EOSFM0liHSc67eAq+tFY09rXGSbjpSQts0qupgqLSS/4qEZQDO3I7Z3lYObhXIm71vEk7MNMncTUA18gVnAdsx68z/GikE0Kpj93wXm2MV435+6YhBfo8WMrBlHgM2VElJkeiuOV+nBinOxXOP0sdqxLktpGb3kcsi5ipbvUIyL+Tae7Z9II1XbyUsD3a0XCkqiQEg/Bb5Zt75VBmActDvvLeXqvbcRDsYc/n6n0zMGOfhZtWtvfiEUCHTBxUHId50MgUVCnjweva3Ij8TCSyK4ADgMEtZ52Yysx7/oKPtTz4g14vJmfUTcAuwBdxVEEWq6UYTZS5Au/0xUfaRiRQvr0FEyzo9UvajCxTEs5Q56xIV/mPMbMoUpaTmvxyYJ5CXj+pqRDSThp+2zMhuJHiwIDiQePfUbGPcGb41FC+jx/SjtxBidwtEK/2c1RoSYsoNZk+4LnVrzW28VkoCGkxQU9p1HDA6kf4JqWldehv2eIfM2HA7Y=
+  app: auth_server
+  skip_cleanup: true

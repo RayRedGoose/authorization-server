@@ -1,0 +1,38 @@
+{
+  "name": "authorization-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --forceExit",
+    "test:watch": "jest --watchAll",
+    "start:prod": "babel-node src/server/start.js",
+    "start": "node src/server/start.js",
+    "start:dev": "nodemon src/server/start.js",
+    "db:dev": "knex migrate:latest --env development",
+    "db:test": "knex migrate:latest --env test",
+    "seed:dev": "knex seed:run --env development",
+    "seed:test": "knex seed:run --env test"
+  },
+  "keywords": [],
+  "author": "Raisa Primerova",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jest": "^24.9.0",
+    "jsonwebtoken": "^8.5.1",
+    "knex": "^0.21.1",
+    "lodash": "^4.17.20",
+    "mocha": "^7.0.1",
+    "pg": "^8.0.3",
+    "supertest": "^4.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.1",
+    "regenerator-runtime": "^0.13.3"
+  }
+}
