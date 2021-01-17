@@ -29,6 +29,7 @@
     "lodash": "^4.17.20",
     "mocha": "^7.0.1",
     "pg": "^8.0.3",
+    "randomstring": "^1.1.5",
     "supertest": "^4.0.2"
   },
   "devDependencies": {
