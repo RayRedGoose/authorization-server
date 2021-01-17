@@ -7,6 +7,7 @@ const {
   deleteUser,
 } = require("../controllers/user_controller");
 
-router.route("/users/:id").get(getUser).put(putUser).delete(deleteUser);
+router.route("/users").get(getUser);
+router.route("/users/:id").put(putUser).delete(deleteUser);
 
 module.exports = router;

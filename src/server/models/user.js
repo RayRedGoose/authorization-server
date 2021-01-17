@@ -64,7 +64,7 @@ module.exports = (knex) => {
       .then(([user, isMatch]) => {
         if (!isMatch) throw matchErrorMsg;
 
-        return user;
+        return knex.select().from("users").where({ id: user.id });
       });
   };
 
